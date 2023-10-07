@@ -1,6 +1,7 @@
 package com.the_ape.application;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Application{
     public static void main(String[] args){
@@ -18,12 +19,19 @@ public class Application{
         closeButton.setLocation(300, 400);
         closeButton.setFocusable(false);
 
+        /*Create a panel where webcam will open from */
+        JPanel webcamPanel = new JPanel();
+        webcamPanel.setLayout(null);
+        webcamPanel.setSize(400, 350);
+        webcamPanel.setLocation(50, 20);
+        webcamPanel.setBackground(Color.BLACK);
 
 
         JFrame cameraFrame = new JFrame();
         // Add the frame components
         cameraFrame.add(startButton);
         cameraFrame.add(closeButton);
+        cameraFrame.add(webcamPanel);
 
         cameraFrame.setTitle("The APE");
         cameraFrame.setLayout(null);
