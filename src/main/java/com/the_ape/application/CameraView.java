@@ -6,27 +6,32 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CameraView extends JFrame implements ActionListener {
+    JButton startButton;
+    JButton closeButton;
+    JPanel webcamPanel;
+    Color defaultPanelColor;
     CameraView(){
         /* Buttons to start and close the camera */
         //START CAMERA BUTTON
-        JButton startButton = new JButton("START");
+        startButton = new JButton("START");
         startButton.setSize(80, 25);
         startButton.setLocation(100, 400);
         startButton.setFocusable(false);
-        //startButton.addActionListener((ActionListener));
+        startButton.addActionListener(this);
 
         //CLOSE CAMERA BUTTON
-        JButton closeButton = new JButton("CLOSE");
+        closeButton = new JButton("CLOSE");
         closeButton.setSize(80, 25);
         closeButton.setLocation(300, 400);
         closeButton.setFocusable(false);
+        closeButton.addActionListener(this);
 
         /*Create a panel where webcam will open from */
-        JPanel webcamPanel = new JPanel();
+        webcamPanel = new JPanel();
         webcamPanel.setLayout(null);
         webcamPanel.setSize(400, 350);
         webcamPanel.setLocation(50, 20);
-        webcamPanel.setBackground(Color.BLACK);
+        defaultPanelColor = webcamPanel.getBackground();
 
         // Add the frame components
         this.add(startButton);
@@ -42,6 +47,13 @@ public class CameraView extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        if(e.getSource()==startButton){
+            System.out.println("Webcam started");
+            webcamPanel.setBackground(Color.BLACK);
+        }
+        if (e.getSource()==closeButton){
+            System.out.println("Webcam closed");
+            webcamPanel.setBackground(defaultPanelColor);
+        }
     }
 }
