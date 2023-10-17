@@ -8,8 +8,8 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.io.IOException;
 
-public class Application{
-    public static void main(String[] args) throws IOException {
+public class App{
+    public static void main(String[] args) throws IOException, ClassNotFoundException{
         System.out.println("Started over the application");
         //previously
         //-Djava.library.path=/home/ustadhi/java_libraries/opencv/build/java/opencv-480.jar
