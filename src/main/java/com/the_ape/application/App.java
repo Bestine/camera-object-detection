@@ -25,6 +25,7 @@ public class App{
         ImageIO.write(webcam.getImage(),
                 "JPG",
                 new File("first_capture.jpg"));
+
         
     }
 }
